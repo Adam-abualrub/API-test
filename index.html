@@ -14,15 +14,22 @@
         <input type="text" id="fname" name="fname"><br><br>
         <input type="submit" value="Submit">
     </form>
+    <p id="demo"></p>
     <script>
-        function getFormValues(event) {
+        console.log(text)
+        async function getFormValues(event) {
             event.preventDefault()
             const name_value = document.getElementById('fname').value
             console.log(name_value)
-            let firstName = `put your name`;
-            let lastName = `Adam`;
-            let text = `Welcome ${firstName}, ${lastName}!`;
-            console.log(text)
+            let url = `https://api.agify.io/?name=${name_value}`;
+            const response = await fetch(url);
+            const result = await response.json();
+            console.log(result) 
+            console.log(result.age)
+            console.log(url)
+            // Display Data from the Object:
+            document.getElementById("demo").innerHTML =
+                "your age is " + result.age;
         }
     </script>
 </body>
