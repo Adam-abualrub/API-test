@@ -30,11 +30,16 @@
                 const result = await response.json(); //convert result to JSON
                 console.log(result)
                 console.log(result.id)
+                console.log(result.height)
+                console.log(result.weight)
+                console.log(result.abilities[0].slot)
+                console.log(result.cries.latest)
                 // Display Data from the Object:
-                document.getElementById("pokemon-id").innerHTML = `${pokemon} id is ${result.id}`
+                document.getElementById("pokemon-id").innerHTML = ` ${pokemon} id is ${result.id} ${pokemon} height is ${result.height}  weight is ${result.weight}`
             } else {
                 alert("please input a valid pokemon name")
             }
+
         }
     </script>
 </body>
