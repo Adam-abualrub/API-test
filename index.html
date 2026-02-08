@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 
@@ -14,6 +15,30 @@
         <input type="submit" value="submit">
     </form>
     <p id="pokemon-id"></p>
+    <div class="card">
+        <div class="top-bar">
+            <p id="type-pokemon">type</p>
+            <p id="name-pokemon">name</p>
+            <p id="hp-pokemon">HP</p>
+        </div>
+        <div class="pokemon-picture">
+            <img id="image-pokemon" src="">
+        </div>
+        <div class="ability">
+            <p>abilities:</p>
+        </div>
+        <div class="data">
+            <p id="atk-pokemon">Atk</p>
+            <p id="def-pokemon">Def</p>
+            <p id="speed-pokemon">speed</p>
+        </div>
+        <div class="data">
+            <p id="Height-pokemon">Height</p>
+            <p id="Weight-pokemon">Weight</p>
+        </div>
+        <div class:></div>
+    </div>
+
     <script>
         console.log(text)
         async function getFormValues(event) {
@@ -30,18 +55,54 @@
                 const result = await response.json(); //convert result to JSON
                 console.log(result)
                 console.log(result.id)
+                console.log(result.name)
                 console.log(result.height)
                 console.log(result.weight)
                 console.log(result.abilities[0].slot)
                 console.log(result.cries.latest)
+                console.log(result.stats[0].base_stat)
+                console.log(result.stats[1].base_stat)
+                console.log(result.stats[2].base_stat)
+                console.log(result.stats[5].base_stat)
+                console.log(result.sprites.front_default)
+
                 // Display Data from the Object:
                 document.getElementById("pokemon-id").innerHTML = ` ${pokemon} id is ${result.id} ${pokemon} height is ${result.height}  weight is ${result.weight}`
+
+                //display/write pokemon name on card top middle
+
+                document.getElementById("name-pokemon").innerHTML = ` ${result.name} `
+
+                document.getElementById("hp-pokemon").innerHTML = ` ${result.stats[0].base_stat} `
+
+                document.getElementById("type-pokemon").innerHTML = ` ${result.types[0].type.name} `
+
+                document.getElementById("Height-pokemon").innerHTML = ` ${result.height} `
+
+                document.getElementById("Weight-pokemon").innerHTML = ` ${result.weight} `
+
+                document.getElementById("atk-pokemon").innerHTML = ` ${result.stats[1].base_stat} `
+
+                document.getElementById("def-pokemon").innerHTML = ` ${result.stats[2].base_stat} `
+
+                document.getElementById("speed-pokemon").innerHTML = ` ${result.stats[5].base_stat} `
+
+                document.getElementById("image-pokemon").src = ` ${result.sprites.front_default} `
+
+
+
+
+
+
+
+
             } else {
                 alert("please input a valid pokemon name")
             }
 
         }
     </script>
+
 </body>
 
 </html>
