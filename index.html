@@ -15,7 +15,7 @@
         <input type="submit" value="submit">
     </form>
     <p id="pokemon-id"></p>
-    <div class="card">
+    <div class="card" id="card">
         <div class="top-bar">
             <p id="type-pokemon">type</p>
             <p id="name-pokemon">name</p>
@@ -77,6 +77,10 @@
 
                 document.getElementById("type-pokemon").innerHTML = ` ${result.types[0].type.name} `
 
+                if (result.types[0].type.name == "fire") {
+                    document.getElementById("card").style.backgroundColor = "red";
+                }
+
                 document.getElementById("Height-pokemon").innerHTML = ` ${result.height} `
 
                 document.getElementById("Weight-pokemon").innerHTML = ` ${result.weight} `
@@ -88,17 +92,11 @@
                 document.getElementById("speed-pokemon").innerHTML = ` ${result.stats[5].base_stat} `
 
                 document.getElementById("image-pokemon").src = ` ${result.sprites.front_default} `
-
-
-
-
-
-
-
-
-            } else {
+            }
+            else {
                 alert("please input a valid pokemon name")
             }
+
 
         }
     </script>

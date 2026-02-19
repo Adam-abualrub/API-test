@@ -1,1 +1,4 @@
-console.log("hello_")
+if (raining==true) { 
+    console.log("bring umbrella")
+}
+console.log("go")
