@@ -16,27 +16,35 @@
     </form>
     <p id="pokemon-id"></p>
     <div class="card" id="card">
+
+
         <div class="top-bar">
             <p id="type-pokemon">type</p>
             <p id="name-pokemon">name</p>
             <p id="hp-pokemon">HP</p>
         </div>
+
+
+
         <div class="pokemon-picture">
             <img id="image-pokemon" src="">
         </div>
-        <div class="ability">
-            <p>abilities:</p>
-        </div>
+
+ 
         <div class="data">
             <p id="atk-pokemon">Atk</p>
             <p id="def-pokemon">Def</p>
             <p id="speed-pokemon">speed</p>
         </div>
+
+
+
         <div class="data">
             <p id="Height-pokemon">Height</p>
             <p id="Weight-pokemon">Weight</p>
         </div>
-        <div class:></div>
+
+
     </div>
 
     <script>
@@ -73,25 +81,61 @@
 
                 document.getElementById("name-pokemon").innerHTML = ` ${result.name} `
 
-                document.getElementById("hp-pokemon").innerHTML = ` ${result.stats[0].base_stat} `
+                document.getElementById("hp-pokemon").innerHTML = ` hp:${result.stats[0].base_stat} `
 
-                document.getElementById("type-pokemon").innerHTML = ` ${result.types[0].type.name} `
 
                 if (result.types[0].type.name == "fire") {
                     document.getElementById("card").style.backgroundColor = "red";
+                    document.getElementById("type-pokemon").innerHTML = `🔥`
+                } else if (result.types[0].type.name == "water") {
+                    document.getElementById("card").style.backgroundColor = "blue";
+                    document.getElementById("type-pokemon").innerHTML = `💧`
+                }
+                else if (result.types[0].type.name == "electric") {
+                    document.getElementById("card").style.backgroundColor = "yellow";
+                    document.getElementById("type-pokemon").innerHTML = `⚡`
+                }
+                else if (result.types[0].type.name == "grass") {
+                    document.getElementById("card").style.backgroundColor = "green";
+                    document.getElementById("type-pokemon").innerHTML = `🌳`
                 }
 
-                document.getElementById("Height-pokemon").innerHTML = ` ${result.height} `
+                else if (result.types[0].type.name == "ice") {
+                    document.getElementById("card").style.backgroundColor = "lightblue";
+                    document.getElementById("type-pokemon").innerHTML = `🧊`
+                }
 
-                document.getElementById("Weight-pokemon").innerHTML = ` ${result.weight} `
+                else if (result.types[0].type.name == "fighting") {
+                    document.getElementById("card").style.backgroundColor = "darkred";
+                    document.getElementById("type-pokemon").innerHTML = `🥷`
+                }
 
-                document.getElementById("atk-pokemon").innerHTML = ` ${result.stats[1].base_stat} `
+                else if (result.types[0].type.name == "poison") {
+                    document.getElementById("card").style.backgroundColor = "purple";
+                    document.getElementById("type-pokemon").innerHTML = `💀`
+                }
 
-                document.getElementById("def-pokemon").innerHTML = ` ${result.stats[2].base_stat} `
+                else if (result.types[0].type.name == "ground") {
+                    document.getElementById("card").style.backgroundColor = "brown";
+                    document.getElementById("type-pokemon").innerHTML = `⛰️`
+                }
+                // //Grass = green
+                // Ice = light - blue
+                // Fighting = dark - red
+                // Poison = purple
+                // Ground = brown
 
-                document.getElementById("speed-pokemon").innerHTML = ` ${result.stats[5].base_stat} `
+                document.getElementById("Height-pokemon").innerHTML = ` height<br>${result.height} `
 
-                document.getElementById("image-pokemon").src = ` ${result.sprites.front_default} `
+                document.getElementById("Weight-pokemon").innerHTML = ` weight<br>${result.weight} `
+
+                document.getElementById("atk-pokemon").innerHTML = ` atk<br>${result.stats[1].base_stat} `
+
+                document.getElementById("def-pokemon").innerHTML = ` def<br>${result.stats[2].base_stat} `
+
+                document.getElementById("speed-pokemon").innerHTML = ` speed<br>${result.stats[5].base_stat} `
+
+                document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
             }
             else {
                 alert("please input a valid pokemon name")
