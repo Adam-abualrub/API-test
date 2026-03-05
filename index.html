@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -17,6 +17,7 @@
     </form>
     <p id="pokemon-id"></p>
     <div class="card" id="card">
+
 
 
         <div class="top-bar">
@@ -31,7 +32,14 @@
             <img id="image-pokemon" src="">
         </div>
 
- 
+        <div
+            class="flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
+            <div class="w-full h-12 border-2 border-black"></div>
+
+            <div class="w-full h-12 border-2 border-black"></div>
+        </div>
+
+
         <div class="data">
             <p id="atk-pokemon">Atk</p>
             <p id="def-pokemon">Def</p>
@@ -44,7 +52,6 @@
             <p id="Height-pokemon">Height</p>
             <p id="Weight-pokemon">Weight</p>
         </div>
-
 
     </div>
 
@@ -88,11 +95,11 @@
                 if (result.types[0].type.name == "fire") {
                     document.getElementById("card").style.backgroundColor = "red";
                     document.getElementById("type-pokemon").innerHTML = `🔥`
-                } 
+                }
                 else if (result.types[0].type.name == "normal") {
                     document.getElementById("card").style.backgroundColor = "grey";
                     document.getElementById("type-pokemon").innerHTML = `⚙️`
-                } 
+                }
                 else if (result.types[0].type.name == "water") {
                     document.getElementById("card").style.backgroundColor = "blue";
                     document.getElementById("type-pokemon").innerHTML = `💧`
