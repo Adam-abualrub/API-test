@@ -34,13 +34,14 @@
         <div
             class="flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
             abilities:
-            <div class="w-full flex justify-between flex-row  border-black">
+            <div class="w-full flex justify-around flex-row  border-black">
                 <div id="ability-name">ability-name</div>
                 <div id="slot">slot</div>
             </div>
 
             <div class=" h-12 justify-around">ability-describtion</div>
         </div>
+
 
 
 
@@ -60,7 +61,6 @@
     </div>
 
     <script>
-        console.log(text)
         async function getFormValues(event) {
             event.preventDefault() //prevents the page from reloading
 
@@ -97,52 +97,71 @@
 
                 document.getElementById("hp-pokemon").innerHTML = ` hp:${result.stats[0].base_stat} `
 
-
+                // if type is fire, then type icon is 🔥
+                //if slot is 1, then repleace 1 with 1x type icon
                 if (result.types[0].type.name == "fire") {
                     document.getElementById("card").style.backgroundColor = "red";
                     document.getElementById("type-pokemon").innerHTML = `🔥`
+                    document.getElementById("slot").innerHTML = `🔥`
                 }
                 else if (result.types[0].type.name == "normal") {
                     document.getElementById("card").style.backgroundColor = "grey";
                     document.getElementById("type-pokemon").innerHTML = `⚙️`
+                    document.getElementById("slot").innerHTML = `⚙️`
                 }
                 else if (result.types[0].type.name == "water") {
                     document.getElementById("card").style.backgroundColor = "blue";
                     document.getElementById("type-pokemon").innerHTML = `💧`
+                    document.getElementById("slot").innerHTML = `💧`
+                    
                 }
                 else if (result.types[0].type.name == "electric") {
                     document.getElementById("card").style.backgroundColor = "yellow";
                     document.getElementById("type-pokemon").innerHTML = `⚡`
+                    document.getElementById("slot").innerHTML = `⚡`
                 }
                 else if (result.types[0].type.name == "grass") {
                     document.getElementById("card").style.backgroundColor = "green";
                     document.getElementById("type-pokemon").innerHTML = `🌳`
+                    document.getElementById("slot").innerHTML = `⚡`
                 }
-
                 else if (result.types[0].type.name == "ice") {
                     document.getElementById("card").style.backgroundColor = "lightblue";
                     document.getElementById("type-pokemon").innerHTML = `🧊`
+                    document.getElementById("slot").innerHTML = `🧊`
                 }
-
                 else if (result.types[0].type.name == "fighting") {
                     document.getElementById("card").style.backgroundColor = "darkred";
                     document.getElementById("type-pokemon").innerHTML = `🥷`
+                    document.getElementById("slot").innerHTML = `🥷`
                 }
-
                 else if (result.types[0].type.name == "poison") {
                     document.getElementById("card").style.backgroundColor = "purple";
                     document.getElementById("type-pokemon").innerHTML = `💀`
+                    document.getElementById("slot").innerHTML = `💀`
                 }
-
                 else if (result.types[0].type.name == "ground") {
                     document.getElementById("card").style.backgroundColor = "brown";
                     document.getElementById("type-pokemon").innerHTML = `⛰️`
+                    document.getElementById("slot").innerHTML = `⛰️`
                 }
                 // //Grass = green
                 // Ice = light - blue
                 // Fighting = dark - red
                 // Poison = purple
                 // Ground = brown
+
+
+
+                // if (result.abilities[0].slot == "1") {
+                //     document.getElementById("card")
+                //     document.getElementById("slot").innerHTML = `🔥`
+                // }
+
+                //  else if (result.abilities[0].slot == "1") {
+                //     document.getElementById("card").style.backgroundColor = "red";
+                //     document.getElementById("slot").innerHTML = `🔥`
+                // }
 
                 document.getElementById("Height-pokemon").innerHTML = ` height<br>${result.height} `
 
@@ -156,9 +175,10 @@
 
                 document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
 
-                document.getElementById("ability-name").innerHTML =`${result.abilities[0].ability.name}`
+                document.getElementById("ability-name").innerHTML = `${result.abilities[0].ability.name}`
 
-                document.getElementById("slot").innerHTML = `${result.abilities[0].slot} `
+                // document.getElementById("slot").innerHTML = `${result.abilities[0].slot} `
+                // document.getElementById("ability-describtion").innerHTML = `${result.abilities[1].ability.url} `
             }
             else {
                 alert("please input a valid pokemon name")
