@@ -38,8 +38,10 @@
                 <div id="ability-name">ability-name</div>
                 <div id="slot">slot</div>
             </div>
-
-            <div class=" h-12 justify-around">ability-describtion</div>
+            <div class="w-full flex justify-around flex-row  border-black">
+                <div id="ability-name-1">ability-name</div>
+                <div id="slot-1">slot</div>
+            </div>
         </div>
 
 
@@ -87,6 +89,8 @@
                 // console.log(result.sprites.front_default)
                 console.log(result.abilities[0].ability.name)
                 console.log(result.abilities[0].slot)
+                console.log(result.abilities[1].ability.name)
+                console.log(result.abilities[1].slot)
 
                 // Display Data from the Object:
                 document.getElementById("pokemon-id").innerHTML = ` ${pokemon} id is ${result.id} ${pokemon} height is ${result.height}  weight is ${result.weight}`
@@ -103,47 +107,56 @@
                     document.getElementById("card").style.backgroundColor = "red";
                     document.getElementById("type-pokemon").innerHTML = `🔥`
                     document.getElementById("slot").innerHTML = `🔥`
+                    document.getElementById("slot-1").innerHTML = `🔥🔥🔥`
                 }
                 else if (result.types[0].type.name == "normal") {
                     document.getElementById("card").style.backgroundColor = "grey";
                     document.getElementById("type-pokemon").innerHTML = `⚙️`
                     document.getElementById("slot").innerHTML = `⚙️`
+                    document.getElementById("slot-1").innerHTML = `⚙️⚙️⚙️`
                 }
                 else if (result.types[0].type.name == "water") {
                     document.getElementById("card").style.backgroundColor = "blue";
                     document.getElementById("type-pokemon").innerHTML = `💧`
                     document.getElementById("slot").innerHTML = `💧`
-                    
+                    document.getElementById("slot-1").innerHTML = `💧💧💧`
+
                 }
                 else if (result.types[0].type.name == "electric") {
                     document.getElementById("card").style.backgroundColor = "yellow";
                     document.getElementById("type-pokemon").innerHTML = `⚡`
                     document.getElementById("slot").innerHTML = `⚡`
+                    document.getElementById("slot-1").innerHTML = `⚡⚡⚡`
                 }
                 else if (result.types[0].type.name == "grass") {
                     document.getElementById("card").style.backgroundColor = "green";
                     document.getElementById("type-pokemon").innerHTML = `🌳`
-                    document.getElementById("slot").innerHTML = `⚡`
+                    document.getElementById("slot").innerHTML = `🌳`
+                    document.getElementById("slot-1").innerHTML = `🌳🌳🌳`
                 }
                 else if (result.types[0].type.name == "ice") {
                     document.getElementById("card").style.backgroundColor = "lightblue";
                     document.getElementById("type-pokemon").innerHTML = `🧊`
                     document.getElementById("slot").innerHTML = `🧊`
+                    document.getElementById("slot-1").innerHTML = `🧊🧊🧊`
                 }
                 else if (result.types[0].type.name == "fighting") {
                     document.getElementById("card").style.backgroundColor = "darkred";
                     document.getElementById("type-pokemon").innerHTML = `🥷`
                     document.getElementById("slot").innerHTML = `🥷`
+                    document.getElementById("slot-1").innerHTML = `🥷🥷🥷`
                 }
                 else if (result.types[0].type.name == "poison") {
                     document.getElementById("card").style.backgroundColor = "purple";
                     document.getElementById("type-pokemon").innerHTML = `💀`
                     document.getElementById("slot").innerHTML = `💀`
+                    document.getElementById("slot-1").innerHTML = `💀💀💀`
                 }
                 else if (result.types[0].type.name == "ground") {
                     document.getElementById("card").style.backgroundColor = "brown";
                     document.getElementById("type-pokemon").innerHTML = `⛰️`
                     document.getElementById("slot").innerHTML = `⛰️`
+                    document.getElementById("slot-1").innerHTML = `⛰️⛰️⛰️`
                 }
                 // //Grass = green
                 // Ice = light - blue
@@ -176,6 +189,8 @@
                 document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
 
                 document.getElementById("ability-name").innerHTML = `${result.abilities[0].ability.name}`
+                document.getElementById("ability-name-1").innerHTML = `${result.abilities[1].ability.name}`
+                
 
                 // document.getElementById("slot").innerHTML = `${result.abilities[0].slot} `
                 // document.getElementById("ability-describtion").innerHTML = `${result.abilities[1].ability.url} `
