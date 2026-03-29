@@ -119,22 +119,27 @@
                 }
                 else if (result.types[0].type.name == "electric") {
                     document.getElementById("card").style.backgroundColor = "yellow";
+                    icon = `⚡`
                 }
                 else if (result.types[0].type.name == "grass") {
                     document.getElementById("card").style.backgroundColor = "green";
+                    icon = `🌳`
                 }
                 else if (result.types[0].type.name == "ice") {
                     document.getElementById("card").style.backgroundColor = "lightblue";
+                    icon = `🧊`
                 }
                 else if (result.types[0].type.name == "fighting") {
                     document.getElementById("card").style.backgroundColor = "darkred";
-
+                    icon = `🥷`
                 }
                 else if (result.types[0].type.name == "poison") {
                     document.getElementById("card").style.backgroundColor = "purple";
+                    icon = `💀`
                 }
                 else if (result.types[0].type.name == "ground") {
                     document.getElementById("card").style.backgroundColor = "brown";
+                    icon = `⛱️`
                 }
 
                 document.getElementById("type-pokemon").innerHTML = icon
