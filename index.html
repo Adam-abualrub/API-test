@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        @theme {
+            --font-roboto: "Roboto",sans-serif;
+            --font-os: "Open Sans",sans-serif;
+            --font-ob: "Irish Grover",sans-serif;
+        }
+
+    </style>
     <title>Document</title>
 </head>
 
 <body>
-    <h2 class="text-4xl">Input pokemon name</h2>
+    <h2 class="text-4xl font-ob">Input pokemon name</h2>
     <form onsubmit="getFormValues(event)">
         <input type="text" id="fname" name="fname"><br><br>
         <input type="submit" value="submit">
@@ -22,7 +37,7 @@
 
         <div class="top-bar">
             <p id="type-pokemon">type</p>
-            <p id="name-pokemon">name</p>
+            <p class="font-ob" id="name-pokemon">name</p>
             <p id="hp-pokemon">HP</p>
         </div>
 
@@ -93,7 +108,7 @@
 
                 const type = ["water", "fire", "normal", "electric", "grass", "ice", "fighting", "poison", "ground"];
                 const background_color = ["blue", "red", "grey", "yellow", "green", "lightblue", "darkred", "purple", "brown"];
-                const icon = ["💧", "🔥", "⚙️" ,"⚡", "🌳","🧊","🥷","💀","⛱️",]
+                const icon = ["💧", "🔥", "⚙️", "⚡", "🌳", "🧊", "🥷", "💀", "⛱️",]
                 const restype = result.types[0].type.name
                 type.forEach((value, index) => {
                     if (restype == value) {

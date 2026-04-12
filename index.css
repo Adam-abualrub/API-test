@@ -1,3 +1,15 @@
+head {
+    .indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+}
+
+
+
+
 .card{ 
     width: 400px;
     height: 620px;
