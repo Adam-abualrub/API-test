@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -13,11 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style type="text/tailwindcss">
         @theme {
             --font-roboto: "Roboto",sans-serif;
             --font-os: "Open Sans",sans-serif;
             --font-ob: "Irish Grover",sans-serif;
+            --font-flower: "Indie Flower",sans-serif;
+            --font-gela: "Gelasio",sans-serif;
         }
 
     </style>
@@ -25,7 +34,7 @@
 </head>
 
 <body>
-    <h2 class="text-4xl font-ob">Input pokemon name</h2>
+    <h2 class="text-4xl font-roboto">Input pokemon name</h2>
     <form onsubmit="getFormValues(event)">
         <input type="text" id="fname" name="fname"><br><br>
         <input type="submit" value="submit">
@@ -35,9 +44,9 @@
 
 
 
-        <div class="top-bar">
+        <div class="top-bar font-gela">
             <p id="type-pokemon">type</p>
-            <p class="font-ob" id="name-pokemon">name</p>
+            <p id="name-pokemon">name</p>
             <p id="hp-pokemon">HP</p>
         </div>
 
@@ -47,7 +56,7 @@
             <img id="image-pokemon" src="">
         </div>
         <div
-            class="flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
+            class=" font-flower flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
             abilities:
             <div class="w-full flex justify-around flex-row  border-black">
                 <div id="ability-name">ability-name</div>
@@ -165,15 +174,15 @@
                 //     document.getElementById("slot").innerHTML = `🔥`
                 // }
 
-                document.getElementById("Height-pokemon").innerHTML = ` height<br>${result.height} `
+                document.getElementById("Height-pokemon").innerHTML = `📏<br>${result.height} `
 
-                document.getElementById("Weight-pokemon").innerHTML = ` weight<br>${result.weight} `
+                document.getElementById("Weight-pokemon").innerHTML = `⚖️<br>${result.weight} `
 
-                document.getElementById("atk-pokemon").innerHTML = ` atk<br>${result.stats[1].base_stat} `
+                document.getElementById("atk-pokemon").innerHTML = `⚔️<br>${result.stats[1].base_stat} `
 
-                document.getElementById("def-pokemon").innerHTML = ` def<br>${result.stats[2].base_stat} `
+                document.getElementById("def-pokemon").innerHTML = `🛡️<br>${result.stats[2].base_stat} `
 
-                document.getElementById("speed-pokemon").innerHTML = ` speed<br>${result.stats[5].base_stat} `
+                document.getElementById("speed-pokemon").innerHTML = `🏃‍♂️‍➡️<br>${result.stats[5].base_stat} `
 
                 document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
 
