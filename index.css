@@ -40,22 +40,9 @@ head {
     
 }
 
-.icon-image-atk{
+.icon-image{
     width: 2rem;
 }
-.icon-image-def{
-    width: 2rem;
-}
-.icon-image-speed{
-    width: 2rem;
-}
-.icon-image-height{
-    width: 2rem;
-}
-.icon-image-weight{
-    width: 2rem;
-}
-
 
 #image-pokemon1{
     height: 5rem;
@@ -93,54 +80,5 @@ head {
     display: flex;
     align-items:center;
     justify-content:center;
+    flex-direction: column;
 }
-
-#Height-pokemon{
-    border : 2px white solid;
-    background-color: white; 
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items:center;
-    justify-content:center;
-
-}
-
-#Weight-pokemon{
-    border : 2px white solid;
-    background-color: white; 
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items:center;
-    justify-content:center;
-
-}
-
-#def-pokemon{
-    border : 2px white solid;
-    background-color: white; 
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items:center;
-    justify-content:center;
-
-}
-
-#speed-pokemon{
-    border : 2px white solid;
-    background-color: white; 
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items:center;
-    justify-content:center;
-
-}
-
-
