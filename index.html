@@ -13,13 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
     <style type="text/tailwindcss">
         @theme {
             --font-roboto: "Roboto",sans-serif;
@@ -40,6 +41,8 @@
         <input type="submit" value="submit">
     </form>
     <p id="pokemon-id"></p>
+    <div class="pokemon-picture-test">
+    </div>
     <div class="card" id="card">
 
 
@@ -72,16 +75,39 @@
 
 
         <div class="data">
-            <p id="atk-pokemon">Atk</p>
-            <p id="def-pokemon">Def</p>
-            <p id="speed-pokemon">speed</p>
+
+            <div class="stats">
+                <img class="icon-image-atk" src="sword.svg">
+                <p id="atk-pokemon">
+                    Atk
+                </p>
+            </div>
+            
+            <p id="def-pokemon"></p>
+            <div>
+                Def
+                <img class="icon-image-def" src="shield.svg">
+            </div>
+            <p id="speed-pokemon"></p>
+            <div>
+                speed
+                <img class="icon-image-speed" src="speed.svg">
+            </div>
+
         </div>
 
-
-
         <div class="data">
-            <p id="Height-pokemon">Height</p>
-            <p id="Weight-pokemon">Weight</p>
+            <p id="Height-pokemon"></p>
+            <div>
+                Height
+                <img class="icon-image-height" src="height.svg">
+            </div>
+            <p id="Weight-pokemon">
+            <div ">
+                Weight
+                <img class=" icon-image-weight" src="weight.svg">
+            </div>
+            </p>
         </div>
 
     </div>
@@ -129,69 +155,25 @@
                     }
                 })
 
+                document.getElementById("Height-pokemon").innerHTML = `${result.height} `
 
-                // else if (result.types[0].type.name == "electric") {
-                //     document.getElementById("card").style.backgroundColor = "yellow";
-                //     icon = `⚡`
-                // }
-                // else if (result.types[0].type.name == "grass") {
-                //     document.getElementById("card").style.backgroundColor = "green";
-                //     icon = `🌳`
-                // }
-                // else if (result.types[0].type.name == "ice") {
-                //     document.getElementById("card").style.backgroundColor = "lightblue";
-                //     icon = `🧊`
-                // }
-                // else if (result.types[0].type.name == "fighting") {
-                //     document.getElementById("card").style.backgroundColor = "darkred";
-                //     icon = `🥷`
-                // }
-                // else if (result.types[0].type.name == "poison") {
-                //     document.getElementById("card").style.backgroundColor = "purple";
-                //     icon = `💀`
-                // }
-                // else if (result.types[0].type.name == "ground") {
-                //     document.getElementById("card").style.backgroundColor = "brown";
-                //     icon = `⛱️`
-                // }
+                document.getElementById("Weight-pokemon").innerHTML = `${result.weight} `
 
+                document.getElementById("atk-pokemon").innerHTML = `${result.stats[1].base_stat} `
 
-                // //Grass = green
-                // Ice = light - blue
-                // Fighting = dark - red
-                // Poison = purple
-                // Ground = brown
+                document.getElementById("def-pokemon").innerHTML = `${result.stats[2].base_stat} `
 
-
-
-                // if (result.abilities[0].slot == "1") {
-                //     document.getElementById("card")
-                //     document.getElementById("slot").innerHTML = `🔥`
-                // }
-
-                //  else if (result.abilities[0].slot == "1") {
-                //     document.getElementById("card").style.backgroundColor = "red";
-                //     document.getElementById("slot").innerHTML = `🔥`
-                // }
-
-                document.getElementById("Height-pokemon").innerHTML = `📏<br>${result.height} `
-
-                document.getElementById("Weight-pokemon").innerHTML = `⚖️<br>${result.weight} `
-
-                document.getElementById("atk-pokemon").innerHTML = `⚔️<br>${result.stats[1].base_stat} `
-
-                document.getElementById("def-pokemon").innerHTML = `🛡️<br>${result.stats[2].base_stat} `
-
-                document.getElementById("speed-pokemon").innerHTML = `🏃‍♂️‍➡️<br>${result.stats[5].base_stat} `
+                document.getElementById("speed-pokemon").innerHTML = `${result.stats[5].base_stat} `
 
                 document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
+                document.getElementById("image-pokemon1").src = `${result.sprites.front_default} `
+                document.getElementById("image-pokemon2").src = `${result.sprites.front_default} `
+                document.getElementById("image-pokemon3").src = `${result.sprites.front_default} `
+
 
                 document.getElementById("ability-name").innerHTML = `${result.abilities[0].ability.name}`
                 document.getElementById("ability-name-1").innerHTML = `${result.abilities[1].ability.name}`
 
-
-                // document.getElementById("slot").innerHTML = `${result.abilities[0].slot} `
-                // document.getElementById("ability-describtion").innerHTML = `${result.abilities[1].ability.url} `
             }
             else {
                 alert("please input a valid pokemon name")
