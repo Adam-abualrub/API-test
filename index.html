@@ -37,150 +37,151 @@
 <body>
     <h2 class="text-4xl font-roboto">Input pokemon name</h2>
     <form onsubmit="getFormValues(event)">
-        <input type="text" id="fname" name="fname"><br><br>
+        <input type="text" class="pokemon-unput" id="fname" name="fname"><br><br>
         <input type="submit" value="submit">
     </form>
     <p id="pokemon-id"></p>
     <div class="pokemon-picture-test">
     </div>
-    <div class="card" id="card">
+    <div class="card-container">
+        <div class="card" id="card">
 
 
 
-        <div class="top-bar font-gela">
-            <p id="type-pokemon">type</p>
-            <p id="name-pokemon">name</p>
-            <p id="hp-pokemon">HP</p>
+            <div class="top-bar font-gela">
+                <p id="type-pokemon">type</p>
+                <p id="name-pokemon">name</p>
+                <p id="hp-pokemon">HP</p>
+            </div>
+
+
+
+            <div class="pokemon-picture">
+                <img id="image-pokemon" src="">
+            </div>
+            <div
+                class=" font-flower flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
+                abilities:
+                <div class="w-full flex justify-around flex-row  border-black">
+                    <div id="ability-name">ability-name</div>
+                    <div id="slot">slot</div>
+                </div>
+                <div class="w-full flex justify-around flex-row  border-black">
+                    <div id="ability-name-1">ability-name</div>
+                    <div id="slot-1">slot</div>
+                </div>
+            </div>
+
+
+
+
+            <div class="data">
+
+                <div class="stats">
+                    <img class="icon-image" src="sword.svg">
+                    <p id="atk-pokemon">Atk</p>
+                </div>
+
+                <div class="stats">
+                    <img class="icon-image" src="shield.svg">
+                    <p id="def-pokemon">Def</p>
+                </div>
+
+                <div class="stats">
+                    <img class="icon-image" src="speed.svg">
+                    <p id="speed-pokemon">speed</p>
+                </div>
+
+            </div>
+
+
+            <div class="data">
+
+                <div class="stats">
+                    <img class="icon-image" src="height.svg">
+                    <p id="Height-pokemon">Height</p>
+                </div>
+
+
+
+                <div class="stats">
+                    <img class=" icon-image" src="weight.svg">
+                    <p id="Weight-pokemon">Weight</p>
+                </div>
+
+            </div>
+
         </div>
 
+        <script>
+            async function getFormValues(event) {
+                event.preventDefault() //prevents the page from reloading
+
+                const pokemon = document.getElementById('fname').value //grab the text in the input tag
+                console.log(pokemon)
+
+                const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`; //define the API url, combine name value in it
+                console.log(url)
+                const response = await fetch(url); //creates http GET request to API 
+
+                if (response.ok) {
+                    console.log("ALL GOOD")
+                    const result = await response.json(); //convert result to JSON
+                    console.log(result)
 
 
-        <div class="pokemon-picture">
-            <img id="image-pokemon" src="">
-        </div>
-        <div
-            class=" font-flower flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
-            abilities:
-            <div class="w-full flex justify-around flex-row  border-black">
-                <div id="ability-name">ability-name</div>
-                <div id="slot">slot</div>
-            </div>
-            <div class="w-full flex justify-around flex-row  border-black">
-                <div id="ability-name-1">ability-name</div>
-                <div id="slot-1">slot</div>
-            </div>
-        </div>
+                    // Display Data from the Object:
+                    document.getElementById("pokemon-id").innerHTML = ` ${pokemon} id is ${result.id} ${pokemon} height is ${result.height}  weight is ${result.weight}`
+
+                    //display/write pokemon name on card top middle
+
+                    document.getElementById("name-pokemon").innerHTML = ` ${result.name} `
+
+                    document.getElementById("hp-pokemon").innerHTML = ` hp:${result.stats[0].base_stat} `
+
+                    // if type is fire, then type icon is 🔥
+                    //if slot is 1, then repleace 1 with 1x type icon
+
+                    const type = ["water", "fire", "normal", "electric", "grass", "ice", "fighting", "poison", "ground"];
+                    const background_color = ["blue", "red", "grey", "yellow", "green", "lightblue", "darkred", "purple", "brown"];
+                    const icon = ["💧", "🔥", "⚙️", "⚡", "🌳", "🧊", "🥷", "💀", "⛱️",]
+                    const restype = result.types[0].type.name
+                    type.forEach((value, index) => {
+                        if (restype == value) {
+                            console.log(value, index)
+                            document.getElementById("card").style.backgroundColor = background_color[index]
+                            document.getElementById("type-pokemon").innerHTML = icon[index]
+                            document.getElementById("slot").innerHTML = icon[index].repeat(result.abilities[0].slot);
+                            document.getElementById("slot-1").innerHTML = icon[index].repeat(result.abilities[1].slot);
+                        }
+                    })
+
+                    document.getElementById("Height-pokemon").innerHTML = `${result.height} `
+
+                    document.getElementById("Weight-pokemon").innerHTML = `${result.weight} `
+
+                    document.getElementById("atk-pokemon").innerHTML = `${result.stats[1].base_stat} `
+
+                    document.getElementById("def-pokemon").innerHTML = `${result.stats[2].base_stat} `
+
+                    document.getElementById("speed-pokemon").innerHTML = `${result.stats[5].base_stat} `
+
+                    document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
+                    document.getElementById("image-pokemon1").src = `${result.sprites.front_default} `
+                    document.getElementById("image-pokemon2").src = `${result.sprites.front_default} `
+                    document.getElementById("image-pokemon3").src = `${result.sprites.front_default} `
 
 
+                    document.getElementById("ability-name").innerHTML = `${result.abilities[0].ability.name}`
+                    document.getElementById("ability-name-1").innerHTML = `${result.abilities[1].ability.name}`
 
-
-        <div class="data">
-
-            <div class="stats">
-                <img class="icon-image" src="sword.svg">
-                <p id="atk-pokemon">Atk</p>
-            </div>
-            
-            <div class="stats">
-                <img class="icon-image" src="shield.svg">
-                <p id="def-pokemon">Def</p>
-            </div>
-
-            <div class="stats">
-                <img class="icon-image" src="speed.svg">
-                <p id="speed-pokemon">speed</p>
-            </div>
-
-        </div>
-
-
-        <div class="stats">
-            
-            <div>
-                <img class="icon-image" src="height.svg">
-                <p id="Height-pokemon">Height</p>
-            </div>
-
-
-            
-            <div class="stats">
-                <img class=" icon-image" src="weight.svg">
-                <p id="Weight-pokemon">Weight</p>
-            </div>
-            
-        </div>
-
-    </div>
-
-    <script>
-        async function getFormValues(event) {
-            event.preventDefault() //prevents the page from reloading
-
-            const pokemon = document.getElementById('fname').value //grab the text in the input tag
-            console.log(pokemon)
-
-            const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`; //define the API url, combine name value in it
-            console.log(url)
-            const response = await fetch(url); //creates http GET request to API 
-
-            if (response.ok) {
-                console.log("ALL GOOD")
-                const result = await response.json(); //convert result to JSON
-                console.log(result)
-
-
-                // Display Data from the Object:
-                document.getElementById("pokemon-id").innerHTML = ` ${pokemon} id is ${result.id} ${pokemon} height is ${result.height}  weight is ${result.weight}`
-
-                //display/write pokemon name on card top middle
-
-                document.getElementById("name-pokemon").innerHTML = ` ${result.name} `
-
-                document.getElementById("hp-pokemon").innerHTML = ` hp:${result.stats[0].base_stat} `
-
-                // if type is fire, then type icon is 🔥
-                //if slot is 1, then repleace 1 with 1x type icon
-
-                const type = ["water", "fire", "normal", "electric", "grass", "ice", "fighting", "poison", "ground"];
-                const background_color = ["blue", "red", "grey", "yellow", "green", "lightblue", "darkred", "purple", "brown"];
-                const icon = ["💧", "🔥", "⚙️", "⚡", "🌳", "🧊", "🥷", "💀", "⛱️",]
-                const restype = result.types[0].type.name
-                type.forEach((value, index) => {
-                    if (restype == value) {
-                        console.log(value, index)
-                        document.getElementById("card").style.backgroundColor = background_color[index]
-                        document.getElementById("type-pokemon").innerHTML = icon[index]
-                        document.getElementById("slot").innerHTML = icon[index].repeat(result.abilities[0].slot);
-                        document.getElementById("slot-1").innerHTML = icon[index].repeat(result.abilities[1].slot);
-                    }
-                })
-
-                document.getElementById("Height-pokemon").innerHTML = `${result.height} `
-
-                document.getElementById("Weight-pokemon").innerHTML = `${result.weight} `
-
-                document.getElementById("atk-pokemon").innerHTML = `${result.stats[1].base_stat} `
-
-                document.getElementById("def-pokemon").innerHTML = `${result.stats[2].base_stat} `
-
-                document.getElementById("speed-pokemon").innerHTML = `${result.stats[5].base_stat} `
-
-                document.getElementById("image-pokemon").src = `${result.sprites.front_default} `
-                document.getElementById("image-pokemon1").src = `${result.sprites.front_default} `
-                document.getElementById("image-pokemon2").src = `${result.sprites.front_default} `
-                document.getElementById("image-pokemon3").src = `${result.sprites.front_default} `
-
-
-                document.getElementById("ability-name").innerHTML = `${result.abilities[0].ability.name}`
-                document.getElementById("ability-name-1").innerHTML = `${result.abilities[1].ability.name}`
+                }
+                else {
+                    alert("please input a valid pokemon name")
+                }
 
             }
-            else {
-                alert("please input a valid pokemon name")
-            }
-
-        }
-    </script>
+        </script>
 
 </body>
 
