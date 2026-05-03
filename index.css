@@ -7,6 +7,10 @@ head {
 
 }
 
+.form{
+    z-index:10;
+}
+
 .pokemon-unput{
     border: 2px black solid;
 }
@@ -14,10 +18,11 @@ head {
 .card-container{
     display:flex;
     justify-content:center;
-     position: absolute;
-    top: 0;
+    position: absolute;
+    top: 0; 
     width:100vw;
     height:100vh;
+    z-index:-1;
 }
 
 
