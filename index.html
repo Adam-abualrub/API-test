@@ -35,9 +35,16 @@
 </head>
 
 <body>
-    <div class="flex flex-row"></div>
+    <div class="z-10 relative  sm:absolute ">
+        <h2 class="text-4xl font-roboto">Input pokemon name</h2>
+        <form class="z-10" onsubmit="getFormValues(event)">
+            <input type="text" class="border-2 border-black border-solid" id="fname" name="fname"><br><br>
+            <input type="submit" value="submit">
+        </form>
+        <p id="pokemon-id"></p>
+    </div>
 
-    <div class="flex justify-center absolute top-0 w-screen h-screen -z-10">
+    <div class="flex justify-center top-0 sm:h-full w-full -z-10 relative sm:absolute">
         <div class="border-2 border-black flex flex-col justify-center justify-around " id="card">
             <div class="flex justify-around border-2 border-white bg-white rounded-full m-4 font-gela">
                 <p id="type-pokemon">type</p>
@@ -45,7 +52,7 @@
                 <p id="hp-pokemon">HP</p>
             </div>
             <div class="flex justify-center ">
-                <img id="image-pokemon" class="h-60" src="">
+                <img id="image-pokemon" class="h-45" src="">
             </div>
             <div
                 class=" font-flower flex items-center justify-around flex-col gap-3 w-80 h-70 bg-white border-4 border-gray-800 rounded-lg mx-auto my-4 p-2">
@@ -104,14 +111,7 @@
         </div>
     </div>
 
-    <div class="z-10 absolute ">
-        <h2 class="text-4xl font-roboto">Input pokemon name</h2>
-        <form class="z-10" onsubmit="getFormValues(event)">
-            <input type="text" class="border-2 border-black border-solid" id="fname" name="fname"><br><br>
-            <input type="submit" value="submit">
-        </form>
-        <p id="pokemon-id"></p>
-    </div>
+
 
     <script>
         async function getFormValues(event) {
